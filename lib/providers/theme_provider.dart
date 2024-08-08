@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wallpaper/apps/theme/theme.dart';
+import 'package:wallpaper/apps/config/theme.dart';
 
 class ThemeProvider with ChangeNotifier {
   ThemeData _themeData;
