@@ -4,21 +4,24 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:wallpaper/apps/utils/box_login.dart';
 import 'package:wallpaper/pages/home/home_page.dart';
+import 'package:wallpaper/pages/login/login_page.dart';
 import 'package:wallpaper/pages/signup/sinup_page.dart';
 import 'package:wallpaper/providers/theme_provider.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SinupPage extends StatefulWidget {
+  const SinupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SinupPage> createState() => _SinupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SinupPageState extends State<SinupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // Ẩn dấu quay lại
+
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
@@ -35,45 +38,35 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Đăng nhập',
+                'Đăng Ký',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 6),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   style: TextStyle(
-                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.primary,
                   ),
                   children: const <TextSpan>[
-                    TextSpan(text: 'Chào mừng bạn trở lại\n'),
-                    TextSpan(text: 'chúng tôi đã nhớ bạn!'),
+                    TextSpan(text: 'Tạo một tài khoản mới\n'),
+                    TextSpan(
+                        text: 'bạn có thể khám phá tất cả hình ảnh hiện có!'),
                   ],
                 ),
               ),
-              const SizedBox(height: 68),
+              const SizedBox(height: 53),
               const BoxSign(hintText: 'Email'),
-              const SizedBox(height: 30),
+              const SizedBox(height: 26),
               const BoxSign(hintText: 'Mật khẩu', obscureText: true),
-              const SizedBox(height: 30),
-              Container(
-                alignment: Alignment.centerRight,
-                padding: const EdgeInsets.only(right: 30),
-                child: Text(
-                  'Bạn quên mật khẩu?',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 26),
+              const BoxSign(hintText: 'Nhập lại mật khẩu', obscureText: true),
+              const SizedBox(height: 53),
               InkWell(
                 onTap: () {
                   Navigator.push(
@@ -104,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   child: const Text(
-                    'Đăng Nhập',
+                    'Đăng ký',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -119,12 +112,12 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SinupPage(),
+                      builder: (context) => const LoginPage(),
                     ),
                   );
                 },
                 child: const Text(
-                  'Tạo tài khoản mới',
+                  'Đã có tài khoản',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -134,7 +127,6 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

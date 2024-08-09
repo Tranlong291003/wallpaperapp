@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallpaper/pages/introduction/introduction_custom.dart';
 import 'package:wallpaper/pages/login/login_page.dart';
+import 'package:wallpaper/providers/theme_provider.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});
@@ -47,12 +49,11 @@ class IntroductionPage extends StatelessWidget {
                 fit: BoxFit.cover, width: double.infinity),
           ),
         ],
-        dotsDecorator: DotsDecorator(
-          activeColor:
-              Theme.of(context).primaryColor, // Sử dụng màu chính từ chủ đề
-          size: const Size(10.0, 10.0),
-          activeSize: const Size(12.0, 12.0),
-          spacing: const EdgeInsets.symmetric(horizontal: 4.0),
+        dotsDecorator: const DotsDecorator(
+          activeColor: Colors.blue,
+          size: Size(10.0, 10.0),
+          activeSize: Size(12.0, 12.0),
+          spacing: EdgeInsets.symmetric(horizontal: 4.0),
         ),
         showSkipButton: true,
         skip: const Text("Bỏ qua"),
