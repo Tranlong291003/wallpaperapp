@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
 import 'package:wallpaper/apps/utils/box_login.dart';
 import 'package:wallpaper/pages/home/home_page.dart';
 import 'package:wallpaper/pages/login/login_page.dart';
-import 'package:wallpaper/pages/signup/sinup_page.dart';
-import 'package:wallpaper/providers/theme_provider.dart';
 
 class SinupPage extends StatefulWidget {
   const SinupPage({super.key});
@@ -21,19 +18,14 @@ class _SinupPageState extends State<SinupPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false, // Ẩn dấu quay lại
-
-        backgroundColor: Colors.transparent,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.brightness_6),
-            onPressed: () {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-            },
-          ),
-        ],
       ),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
+        ),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

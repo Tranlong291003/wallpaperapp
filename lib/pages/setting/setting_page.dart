@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper/apps/utils/appBar.dart';
 
-class CategoriesPage extends StatefulWidget {
-  const CategoriesPage({super.key});
-
-  @override
-  State<CategoriesPage> createState() => _CategoriesPageState();
-}
-
-class _CategoriesPageState extends State<CategoriesPage> {
+class SettingPage extends StatelessWidget {
+  const SettingPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +13,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
         ),
-        child: const Center(
-          child: Text('CategoriesPage'),
-        ),
+        child: const Center(child: Text('Setting')),
       ),
     );
   }
