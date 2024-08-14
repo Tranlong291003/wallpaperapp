@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
 import 'package:wallpaper/apps/utils/bottonNavigation.dart';
 import 'package:wallpaper/apps/utils/box_login.dart';
-import 'package:wallpaper/pages/home/home_page.dart';
 import 'package:wallpaper/pages/signup/sinup_page.dart';
-import 'package:wallpaper/providers/theme_provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wallpaper/pages/categories/categories_page.dart';
 import 'package:wallpaper/pages/favorite/favorite_page.dart';
 import 'package:wallpaper/pages/home/home_page.dart';
-import 'package:wallpaper/pages/setting/setting_page.dart';
+import 'package:wallpaper/pages/settingPage/setting_page.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -19,13 +19,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
       icon: SizedBox(
         width: 24, // Fixed width
         height: 24, // Fixed height
-        child: Image.asset('assets/images/bottonNavigation/home.png'),
+        child: Image.asset('assets/images/Icon/home.png'),
       ),
       activeIcon: SizedBox(
         width: 24,
         height: 24,
         child: Image.asset(
-          'assets/images/bottonNavigation/home.png',
+          'assets/images/Icon/home.png',
           color: const Color(0xff00AD9F),
         ),
       ),
@@ -35,13 +35,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
       icon: SizedBox(
         width: 24,
         height: 24,
-        child: Image.asset('assets/images/bottonNavigation/category.png'),
+        child: Image.asset('assets/images/Icon/category.png'),
       ),
       activeIcon: SizedBox(
         width: 24,
         height: 24,
         child: Image.asset(
-          'assets/images/bottonNavigation/category.png',
+          'assets/images/Icon/category.png',
           color: const Color(0xff00AD9F),
         ),
       ),
@@ -51,30 +51,30 @@ class _BottomNavigationState extends State<BottomNavigation> {
       icon: SizedBox(
         width: 24,
         height: 24,
-        child: Image.asset('assets/images/bottonNavigation/favorite.png'),
+        child: Image.asset('assets/images/Icon/favorite.png'),
       ),
       activeIcon: SizedBox(
         width: 24,
         height: 24,
         child: Image.asset(
-          'assets/images/bottonNavigation/favorite.png',
+          'assets/images/Icon/favorite.png',
           color: const Color(0xff00AD9F),
         ),
       ),
       label: 'Favorite',
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: SizedBox(
         width: 24,
         height: 24,
-        child: Image.asset('assets/images/bottonNavigation/setting.png'),
+        child: Icon(Icons.control_point_duplicate),
       ),
       activeIcon: SizedBox(
         width: 24,
         height: 24,
-        child: Image.asset(
-          'assets/images/bottonNavigation/setting.png',
-          color: const Color(0xff00AD9F),
+        child: Icon(
+          Icons.control_point_duplicate,
+          color: Color(0xff00AD9F),
         ),
       ),
       label: 'Setting',

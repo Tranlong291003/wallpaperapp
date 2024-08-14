@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallpaper/pages/introduction/introduction_custom.dart';
 import 'package:wallpaper/pages/login/login_page.dart';
-import 'package:wallpaper/providers/theme_provider.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});

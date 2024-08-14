@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper/apps/utils/appBar.dart';
+import 'package:wallpaper/apps/utils/search.dart';
+import 'package:wallpaper/pages/categories/widgets/listItem_Category.dart';
+import 'package:wallpaper/pages/home/widgets/listcategory_homepage.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});
@@ -13,15 +16,11 @@ class _CategoriesPageState extends State<CategoriesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(context),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-        ),
-        child: const Center(
-          child: Text('CategoriesPage'),
-        ),
+      body: Column(
+        children: [
+          search(context),
+          listItem_Category(),
+        ],
       ),
     );
   }

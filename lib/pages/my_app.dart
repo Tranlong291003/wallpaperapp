@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallpaper/apps/utils/bottonNavigation.dart';
 import 'package:wallpaper/pages/introduction/introduction_page.dart';
 import 'package:wallpaper/pages/login/login_page.dart';
-import 'package:wallpaper/pages/home/home_page.dart';
 import 'package:wallpaper/providers/theme_provider.dart';
 
 class MyApp extends StatefulWidget {
@@ -62,7 +61,7 @@ class _MyAppState extends State<MyApp> {
 
     Widget defaultHome;
     if (_user != null) {
-      defaultHome = const HomePage();
+      defaultHome = const BottomNavigation();
     } else if (_seen) {
       defaultHome = const LoginPage();
     } else {
