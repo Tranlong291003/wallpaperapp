@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _checkInitialization() async {
     await _checkIfSeen();
-    // _checkAuthStatus();
+    _checkAuthStatus();
   }
 
   Future<void> _checkIfSeen() async {
@@ -39,12 +39,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  // void _checkAuthStatus() {
-  //   _user = FirebaseAuth.instance.currentUser;
-  //   setState(() {
-  //     _isLoading = false; // Set loading to false once the check is complete
-  //   });
-  // }
+  void _checkAuthStatus() {
+    _user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _isLoading = false; // Set loading to false once the check is complete
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

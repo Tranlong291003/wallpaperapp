@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wallpaper/apps/utils/appBar.dart';
 import 'package:wallpaper/apps/utils/search.dart';
 import 'package:wallpaper/pages/categories/widgets/listItem_Category.dart';
-import 'package:wallpaper/pages/home/widgets/listcategory_homepage.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({super.key});

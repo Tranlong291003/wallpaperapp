@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wallpaper/controllers/authentic_Controller.dart';
+import 'package:wallpaper/pages/login/login_page.dart';
 import 'package:wallpaper/providers/theme_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // Nếu bạn sử dụng Firebase Authentication
 
 AppBar appBar(BuildContext context) {
-  bool Mode = Theme.of(context).brightness == Brightness.dark;
+  bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+  final AuthenticController authController = AuthenticController();
 
   return AppBar(
     toolbarHeight: 70,
@@ -32,24 +36,34 @@ AppBar appBar(BuildContext context) {
         ),
       ),
     ),
-
     actions: [
       Padding(
         padding: const EdgeInsets.only(right: 20, top: 20, bottom: 15),
         child: IconButton(
           icon: Image.asset(
-            Mode
+            isDarkMode
                 ? 'assets/images/Icon/themedark.png'
                 : 'assets/images/Icon/themelight.png',
             width: 24,
             height: 24,
           ),
           onPressed: () {
+            // Toggle giữa chế độ sáng và tối
             Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
           },
         ),
       ),
+      Padding(
+        padding: const EdgeInsets.only(right: 20, top: 20, bottom: 15),
+        child: IconButton(
+          icon: Icon(Icons.logout,
+              color: Theme.of(context).colorScheme.onSecondary),
+          onPressed: () {
+            authController.signOut(context);
+          },
+        ),
+      ),
     ],
-    automaticallyImplyLeading: false, // Ẩn dấu quay lại
+    automaticallyImplyLeading: false, // Ẩn nút quay lại
   );
 }

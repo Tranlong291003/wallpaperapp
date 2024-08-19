@@ -1,20 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:wallpaper/apps/utils/box_login.dart';
-import 'package:wallpaper/pages/home/home_page.dart';
+import 'package:wallpaper/controllers/authentic_Controller.dart';
 import 'package:wallpaper/pages/login/login_page.dart';
 
-class SinupPage extends StatefulWidget {
-  const SinupPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<SinupPage> createState() => _SinupPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _SinupPageState extends State<SinupPage> {
+class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<AuthenticController>(context);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false, // Ẩn dấu quay lại
@@ -53,21 +54,26 @@ class _SinupPageState extends State<SinupPage> {
                 ),
               ),
               const SizedBox(height: 53),
-              const BoxSign(hintText: 'Email'),
+              BoxSign(
+                controller: controller.emailController,
+                hintText: 'Email',
+              ),
               const SizedBox(height: 26),
-              const BoxSign(hintText: 'Mật khẩu', obscureText: true),
+              BoxSign(
+                controller: controller.passwordController,
+                hintText: 'Mật khẩu',
+                obscureText: true,
+              ),
               const SizedBox(height: 26),
-              const BoxSign(hintText: 'Nhập lại mật khẩu', obscureText: true),
+              BoxSign(
+                controller: controller
+                    .confirmPasswordController, // Sửa để sử dụng controller xác nhận mật khẩu
+                hintText: 'Nhập lại mật khẩu',
+                obscureText: true,
+              ),
               const SizedBox(height: 53),
               InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
-                  );
-                },
+                onTap: () => controller.createUserWithEmailAndPassword(context),
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   alignment: Alignment.center,
@@ -122,79 +128,43 @@ class _SinupPageState extends State<SinupPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: 44,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        width: 2,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.g_mobiledata,
-                      size: 40,
-                    ),
-                  ),
+                  _socialMediaIcon(Icons.g_mobiledata),
                   const SizedBox(width: 10),
-                  Container(
-                    height: 44,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        width: 2,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(Icons.facebook),
-                  ),
+                  _socialMediaIcon(Icons.facebook),
                   const SizedBox(width: 10),
-                  Container(
-                    height: 44,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        width: 2,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(Icons.apple),
-                  )
+                  _socialMediaIcon(Icons.apple),
                 ],
-              )
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _socialMediaIcon(IconData icon) {
+    return Container(
+      height: 44,
+      width: 60,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          width: 2,
+          color: Theme.of(context).colorScheme.secondary,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Icon(
+        icon,
+        size: 40,
       ),
     );
   }

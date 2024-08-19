@@ -42,7 +42,7 @@ class _FavoritePageState extends State<FavoritePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.blue,
+                        color: Colors.deepPurple,
                       ),
                       child: Stack(
                         children: [

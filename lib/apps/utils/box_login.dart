@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 class BoxSign extends StatefulWidget {
+  final TextEditingController controller;
+
   final String hintText;
   final bool obscureText;
   const BoxSign({
     super.key,
     required this.hintText,
     this.obscureText = false,
+    required this.controller,
   });
 
   @override
@@ -46,6 +49,7 @@ class _BoxSignState extends State<BoxSign> {
         ],
       ),
       child: TextField(
+        controller: widget.controller,
         textAlignVertical: TextAlignVertical.center,
         obscureText: _obscureText,
         maxLines: 1,

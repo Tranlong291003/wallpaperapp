@@ -63,18 +63,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
       ),
       label: 'Favorite',
     ),
-    const BottomNavigationBarItem(
+    BottomNavigationBarItem(
       icon: SizedBox(
         width: 24,
         height: 24,
-        child: Icon(Icons.control_point_duplicate),
+        child: Image.asset(
+          'assets/images/Icon/setting.png',
+        ),
       ),
       activeIcon: SizedBox(
         width: 24,
         height: 24,
-        child: Icon(
-          Icons.control_point_duplicate,
-          color: Color(0xff00AD9F),
+        child: Image.asset(
+          'assets/images/Icon/setting.png',
+          color: const Color(0xff00AD9F),
         ),
       ),
       label: 'Setting',
