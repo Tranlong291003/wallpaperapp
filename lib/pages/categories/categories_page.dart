@@ -17,7 +17,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
       appBar: appBar(context),
       body: Column(
         children: [
-          search(context),
+          // search(context),
           listItem_Category(),
         ],
       ),

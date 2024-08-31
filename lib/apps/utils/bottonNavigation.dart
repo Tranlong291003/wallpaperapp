@@ -84,7 +84,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   ];
 
   final List<Widget> listPages = [
-    const HomePage(),
+    HomePage(),
     const CategoriesPage(),
     const FavoritePage(),
     const SettingPage(),
