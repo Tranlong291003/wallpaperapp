@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wallpaper/apps/utils/appBar.dart';
 import 'package:wallpaper/controllers/favorite_Controler.dart';
-import 'package:wallpaper/models/photo.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({super.key});
@@ -14,11 +14,9 @@ class FavoritePage extends StatelessWidget {
         final favoritePhotos = favoriteController.getFavoritePhotos();
 
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Favorites'),
-            backgroundColor: Theme.of(context).colorScheme.primary,
-          ),
+          appBar: appBar(context),
           body: Container(
+            padding: const EdgeInsets.only(top: 20),
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(

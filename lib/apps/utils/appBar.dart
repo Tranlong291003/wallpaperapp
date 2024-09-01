@@ -38,7 +38,7 @@ AppBar appBar(BuildContext context) {
     ),
     actions: [
       Padding(
-        padding: const EdgeInsets.only(right: 20, top: 20, bottom: 15),
+        padding: const EdgeInsets.only(right: 20, top: 20, bottom: 10),
         child: IconButton(
           icon: Image.asset(
             isDarkMode
@@ -50,16 +50,6 @@ AppBar appBar(BuildContext context) {
           onPressed: () {
             // Toggle giữa chế độ sáng và tối
             Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-          },
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(right: 20, top: 20, bottom: 15),
-        child: IconButton(
-          icon: Icon(Icons.logout,
-              color: Theme.of(context).colorScheme.onSecondary),
-          onPressed: () {
-            authController.signOut(context);
           },
         ),
       ),

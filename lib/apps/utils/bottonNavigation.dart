@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaper/pages/categories/categories_page.dart';
 import 'package:wallpaper/pages/favorite/favorite_page.dart';
 import 'package:wallpaper/pages/home/home_page.dart';
 import 'package:wallpaper/pages/settingPage/setting_page.dart';
@@ -30,22 +29,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
       ),
       label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: SizedBox(
-        width: 24,
-        height: 24,
-        child: Image.asset('assets/images/Icon/category.png'),
-      ),
-      activeIcon: SizedBox(
-        width: 24,
-        height: 24,
-        child: Image.asset(
-          'assets/images/Icon/category.png',
-          color: const Color(0xff00AD9F),
-        ),
-      ),
-      label: 'Category',
     ),
     BottomNavigationBarItem(
       icon: SizedBox(
@@ -84,8 +67,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   ];
 
   final List<Widget> listPages = [
-    HomePage(),
-    const CategoriesPage(),
+    const HomePage(),
     const FavoritePage(),
     const SettingPage(),
   ];

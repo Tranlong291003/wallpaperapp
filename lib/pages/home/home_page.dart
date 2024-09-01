@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wallpaper/apps/utils/appBar.dart';
 import 'package:wallpaper/apps/utils/search.dart';
 import 'package:wallpaper/controllers/API_Controller.dart';
 import 'package:wallpaper/controllers/favorite_Controler.dart';
@@ -41,13 +42,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-      ),
+      appBar: appBar(context),
       body: Column(
         children: [
           search(context, _onSearchChanged),
+          const SizedBox(height: 10),
           Expanded(
             child: Consumer<FavoriteController>(
               builder: (context, favoriteController, child) {
@@ -55,7 +54,6 @@ class _HomePageState extends State<HomePage> {
                     .where((photo) =>
                         photo.alt.toLowerCase().contains(_searchQuery))
                     .toList();
-
                 return GridView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

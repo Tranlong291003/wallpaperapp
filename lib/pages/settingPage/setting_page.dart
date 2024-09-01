@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaper/apps/utils/appBar.dart'; // Import AppBar tùy chỉnh của bạn
+import 'package:wallpaper/controllers/authentic_Controller.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authController = AuthenticController(); // Khởi tạo AuthController
+
     return Scaffold(
       appBar: appBar(context),
       body: Container(
@@ -24,6 +27,9 @@ class SettingPage extends StatelessWidget {
                   context), // Thay đổi phần giới thiệu thành tính năng chính
               const SizedBox(height: 20),
               _buildContactCard(context),
+              const SizedBox(height: 20),
+              _buildLogoutButton(
+                  context, authController), // Thêm phần đăng xuất
               const SizedBox(height: 20),
               _buildFooter(context),
             ],
@@ -122,6 +128,29 @@ class SettingPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildLogoutButton(
+      BuildContext context, AuthenticController authController) {
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: ListTile(
+        leading:
+            Icon(Icons.logout, color: Theme.of(context).colorScheme.primary),
+        title: Text(
+          'Đăng Xuất',
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+        onTap: () {
+          authController.signOut(context);
+        },
       ),
     );
   }
