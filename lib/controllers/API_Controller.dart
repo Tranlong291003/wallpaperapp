@@ -4,9 +4,9 @@ import 'package:wallpaper/models/photo.dart';
 
 class PexelsApi {
   static const String _apiKey =
-      'cxrjV1743lVcIRv9AZPxsqYQbEFcXRQhrrCIxkQnKlEOQbsOoZswxVal'; // Thay bằng API Key của bạn
+      'cxrjV1743lVcIRv9AZPxsqYQbEFcXRQhrrCIxkQnKlEOQbsOoZswxVal';
   static const String _baseUrl =
-      'https://api.pexels.com/v1/curated?per_page=100000000';
+      'https://api.pexels.com/v1/curated?per_page=100';
 
   Future<List<Photo>> fetchCuratedPhotos() async {
     final response = await http.get(

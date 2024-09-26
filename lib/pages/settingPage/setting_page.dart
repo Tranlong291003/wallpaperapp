@@ -23,8 +23,8 @@ class SettingPage extends StatelessWidget {
             children: <Widget>[
               _buildAppHeader(context),
               const SizedBox(height: 20),
-              _buildFeaturesCard(
-                  context), // Thay đổi phần giới thiệu thành tính năng chính
+              // _buildFeaturesCard(
+              //     context), // Thay đổi phần giới thiệu thành tính năng chính
               const SizedBox(height: 20),
               _buildContactCard(context),
               const SizedBox(height: 20),
@@ -119,12 +119,12 @@ class SettingPage extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.email,
                   color: Theme.of(context).colorScheme.primary),
-              title: const Text('Email: support@example.com'),
+              title: const Text('Email: tranlong2910@gmail.com'),
             ),
             ListTile(
               leading: Icon(Icons.phone,
                   color: Theme.of(context).colorScheme.primary),
-              title: const Text('Điện Thoại: +1 234 567 890'),
+              title: const Text('Điện Thoại: 088.911.2490'),
             ),
           ],
         ),

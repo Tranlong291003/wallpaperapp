@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wallpaper/controllers/authentic_Controller.dart';
-import 'package:wallpaper/pages/login/login_page.dart';
 import 'package:wallpaper/providers/theme_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Nếu bạn sử dụng Firebase Authentication
+// Nếu bạn sử dụng Firebase Authentication
 
 AppBar appBar(BuildContext context) {
   bool isDarkMode = Theme.of(context).brightness == Brightness.dark;

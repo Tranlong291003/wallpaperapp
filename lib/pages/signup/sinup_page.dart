@@ -120,21 +120,21 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
               const SizedBox(height: 75),
-              const Text(
-                'Hoặc tiếp tục với',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _socialMediaIcon(Icons.g_mobiledata),
-                  const SizedBox(width: 10),
-                  _socialMediaIcon(Icons.facebook),
-                  const SizedBox(width: 10),
-                  _socialMediaIcon(Icons.apple),
-                ],
-              ),
+              // const Text(
+              //   'Hoặc tiếp tục với',
+              //   style: TextStyle(fontWeight: FontWeight.bold),
+              // ),
+              // const SizedBox(height: 20),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     _socialMediaIcon(Icons.g_mobiledata),
+              //     const SizedBox(width: 10),
+              //     _socialMediaIcon(Icons.facebook),
+              //     const SizedBox(width: 10),
+              //     _socialMediaIcon(Icons.apple),
+              //   ],
+              // ),
             ],
           ),
         ),

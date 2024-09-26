@@ -13,16 +13,42 @@ class AuthenticController with ChangeNotifier {
 
   // Đăng nhập người dùng với email và mật khẩu
   Future<void> signInWithEmailAndPassword(BuildContext context) async {
+    if (emailController.text.trim().isEmpty ||
+        passwordController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Email và mật khẩu không được để trống.')),
+      );
+      return;
+    }
+
     try {
+      // Hiển thị snackbar đang tải
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Đang đăng nhập...')),
+      );
+
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const BottomNavigation(),
         ),
+      );
+    } on FirebaseAuthException catch (e) {
+      String errorMessage;
+      if (e.code == 'user-not-found') {
+        errorMessage = 'Người dùng không tồn tại.';
+      } else if (e.code == 'wrong-password') {
+        errorMessage = 'Sai mật khẩu.';
+      } else {
+        errorMessage = 'Đăng nhập thất bại: ${e.message}';
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(errorMessage)),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -36,6 +62,13 @@ class AuthenticController with ChangeNotifier {
     final password = passwordController.text.trim();
     final confirmPassword = confirmPasswordController.text.trim();
 
+    if (emailController.text.trim().isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Email và mật khẩu không được để trống.')),
+      );
+      return;
+    }
+
     // Kiểm tra xem mật khẩu và mật khẩu xác nhận có giống nhau không
     if (password != confirmPassword) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -46,6 +79,10 @@ class AuthenticController with ChangeNotifier {
     }
 
     try {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Đang tạo tài khoản...')),
+      );
+
       // Tạo người dùng mới với email và mật khẩu
       final credential = await _auth.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
@@ -73,12 +110,10 @@ class AuthenticController with ChangeNotifier {
         errorMessage = 'Có lỗi xảy ra: ${e.message}';
       }
 
-      // Hiển thị lỗi cho người dùng qua SnackBar
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(errorMessage)),
       );
     } catch (e) {
-      // Xử lý lỗi chung
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Có lỗi xảy ra: ${e.toString()}')),
       );
@@ -121,7 +156,6 @@ class AuthenticController with ChangeNotifier {
         ),
       );
     } catch (e) {
-      // Handle errors (e.g., network issues, authentication errors)
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             content: Text('Đăng nhập bằng Google thất bại: ${e.toString()}')),
